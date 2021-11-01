@@ -3,14 +3,14 @@ package Sort;
 public class Sort {
   void bubbleSort(int[] arr) {
     boolean fl = true;
-    for (int i = 0; fl /*|| i < arr.length*/; i++) {
+    for (int i = 0; fl; i++) {
       fl = false;
-      for (int j = arr.length-1; j > i; j--) {
-        if (arr[j-1]>arr[j]) {
+      for (int j = arr.length - 1; j > i; j--) {
+        if (arr[j - 1] > arr[j]) {
           fl = true;
           int tmp = arr[j];
-          arr[j] = arr[j-1];
-          arr[j-1] = tmp;
+          arr[j] = arr[j - 1];
+          arr[j - 1] = tmp;
         }
       }
     }
@@ -40,5 +40,33 @@ public class Sort {
       }
       arr[j + 1] = tmp;
     }
+  }
+
+  void quickSort(int[] arr, int L, int R) {
+    if(L>=R) {
+      return;
+    }
+    int left = L;
+    int right = R;
+    int pivot = arr[left];
+    while (left<right) {
+      while (left<right&&arr[right]>=pivot) {
+        right--;
+      }
+      if (left<right) {
+        arr[left] = arr[right];
+      }
+      while (left<right&&arr[left]<=pivot) {
+        left++;
+      }
+      if (left<right) {
+        arr[right]=arr[left];
+      }
+      if (left>=right) {
+        arr[left] = pivot;
+      }
+    }
+    quickSort(arr,L,right-1);
+    quickSort(arr, right + 1, R);
   }
 }

@@ -38,5 +38,13 @@ public class SortMain {
     for (int i : c) {
       System.out.printf("%d ",i);
     }
+    System.out.println();
+    System.out.println("====QuickSort====");
+    int[] d = arr.clone();
+    sort.quickSort(d,0,d.length-1);
+    for (int i : d) {
+      System.out.printf("%d ",i);
+    }
+    System.out.println();
   }
 }
