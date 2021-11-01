@@ -46,5 +46,12 @@ public class SortMain {
       System.out.printf("%d ",i);
     }
     System.out.println();
+    System.out.println("====MergeSort====");
+    int[] e = arr.clone();
+    sort.mergeSort(arr);
+    for (int i : e) {
+      System.out.printf("%d ",i);
+    }
+    System.out.println();
   }
 }
